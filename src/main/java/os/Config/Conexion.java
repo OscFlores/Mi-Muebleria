@@ -5,67 +5,29 @@
  */
 package os.Config;
 
+import os.Clases.*;
+import static java.lang.System.out;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.DriverManager;
 import java.sql.SQLException;
-import javax.sql.DataSource;
-import org.apache.commons.dbcp2.BasicDataSource;
 
 /**
  *
  * @author Oscar
  */
 public class Conexion {
-     private static final String JDBC_URL = "jdbc:mysql://localhost:8080/mimuebleria";
-    private static final String JDBC_USER = "TomcatAdmin";
-    private static final String JDBC_PASSWORD = "secpa55wd";
 
-    private static BasicDataSource dataSource;
-
-    public static DataSource getDataSource() {
-        if (dataSource == null) {
-
-            dataSource = new BasicDataSource();
-            dataSource.setUrl(JDBC_URL);
-            dataSource.setUsername(JDBC_USER);
-            dataSource.setPassword(JDBC_PASSWORD);
-            dataSource.setInitialSize(50);
-        }
-
-        return dataSource;
-    }
-
-    public static Connection getConnection() throws Excepciones {
+    private static final String USER = "userMuebleria";
+    private static final String PASSWORD = "MiMuebleria123.";
+    private static final String URL_MYSQL = "jdbc:mysql://localhost:3306/Mi_Muebleria"; 
+    public static Connection conexion()throws MiMuebleriaException {
+        Connection connection = null;
         try {
-            return getDataSource().getConnection();
-        } catch (SQLException ex) {
-            throw new Excepciones("Algo salio mal con la base de datos, vuelve a intentarlo");
-        }
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(URL_MYSQL, USER, PASSWORD);
+        } catch (ClassNotFoundException | SQLException e) {
+            out.println(e.getMessage()+"");
+        } 
+        return connection;
     }
-
-    public static void close(ResultSet rs) throws Excepciones {
-        try {
-            rs.close();
-        } catch (SQLException ex) {
-            throw new Excepciones("Algo salio mal al cerrar un recurso");
-        }
-    }
-
-    public static void close(PreparedStatement stmt) throws Excepciones {
-        try {
-            stmt.close();
-        } catch (SQLException ex) {
-            throw new Excepciones("Algo salio mal al cerrar un recurso");
-        }
-    }
-
-    public static void close(Connection conn) throws Excepciones {
-        try {
-            conn.close();
-        } catch (SQLException ex) {
-            throw new Excepciones("Algo salio mal al cerrar la conexion");
-        }
-    }
-
 }

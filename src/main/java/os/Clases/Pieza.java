@@ -1,89 +1,66 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package os.Clases;
+
+import os.Config.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
  * @author Oscar
  */
 public class Pieza {
-    private int idTipoPieza;
-    private int idPieza;
-    private String Tipo;
-    private double Costo;
-    private int Usado;
-    
-    public Pieza(){}
 
-    public Pieza(String Tipo, double Costo) {
-        this.Tipo = Tipo;
-        this.Costo = Costo;
+    private String tipoPieza;
+    private double costoPieza;
+    private int id;
+
+    public Pieza(String tipoPieza, String id, String costoPieza) throws MiMuebleriaException, SQLException {
+        PreparedStatement consulta = (PreparedStatement) Conexion.conexion().prepareStatement("SELECT MAX(id) from pieza");
+
+        ResultSet result = consulta.executeQuery();
+        result.next();
+        int num = result.getInt(1) + 1;
+        LectorArchivoTexto.setCantidadPieza(num);
+
+        try {
+            this.id = Integer.valueOf(id);
+            this.tipoPieza = tipoPieza;
+            this.costoPieza = Double.valueOf(costoPieza);
+        } catch (NumberFormatException e) {
+            
+        }
+
     }
 
-    public Pieza(int idPieza) {
-        this.idPieza = idPieza;
+    public String getTipoPieza() {
+        return tipoPieza;
     }
 
-    public Pieza(int idTipoPieza, double Costo) {
-        this.idTipoPieza = idTipoPieza;
-        this.Costo = Costo;
+    public void setTipoPieza(String tipoPieza) {
+        this.tipoPieza = tipoPieza;
     }
 
-    public Pieza(int idTipoPieza, int idPieza, String Tipo, double Costo, int Usado) {
-        this.idTipoPieza = idTipoPieza;
-        this.idPieza = idPieza;
-        this.Tipo = Tipo;
-        this.Costo = Costo;
-        this.Usado = Usado;
+    public double getCostoPieza() {
+        return costoPieza;
     }
 
-    public Pieza(int idPieza, String Tipo, double Costo) {
-        this.idPieza = idPieza;
-        this.Tipo = Tipo;
-        this.Costo = Costo;
+    public void setCostoPieza(String costoPieza) {
+        try {
+            this.costoPieza = Double.valueOf(costoPieza);
+        } catch (NumberFormatException e) {
+        }
     }
 
-    public int getIdTipoPieza() {
-        return idTipoPieza;
+    public int getId() {
+        return id;
     }
 
-    public int getIdPieza() {
-        return idPieza;
+    public void setId(String id) {
+        try {
+            this.id = Integer.valueOf(id);
+        } catch (Exception e) {
+        }
     }
 
-    public int getUsado() {
-        return Usado;
-    }
-
-    public String getTipo() {
-        return Tipo;
-    }
-
-    public double getCosto() {
-        return Costo;
-    }
-
-    public void setIdTipoPieza(int idTipoPieza) {
-        this.idTipoPieza = idTipoPieza;
-    }
-
-    public void setIdPieza(int idPieza) {
-        this.idPieza = idPieza;
-    }
-
-    public void setUsado(int Usado) {
-        this.Usado = Usado;
-    }
-
-    public void setTipo(String Tipo) {
-        this.Tipo = Tipo;
-    }
-
-    public void setCosto(double Costo) {
-        this.Costo = Costo;
-    }
-    
 }

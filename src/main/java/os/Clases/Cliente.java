@@ -10,71 +10,76 @@ package os.Clases;
  * @author Oscar
  */
 public class Cliente {
-    private String Nit; 
-    private String Nombre;
-    private String Direccion;
-    private String Municipo;
-    private String Departamento;
-    
-    public Cliente(){}
 
-    public Cliente(String Nit) {
-        this.Nit = Nit;
+    private String nombre;
+    private String NIT;
+    private String direccion;
+    private String municipio;
+    private String departamento;
+
+    public Cliente(String nombre, String nit, String direccion, String municipio, String departamento) {
+        try {
+            this.nombre = nombre;
+            this.NIT = nit;
+            this.direccion = direccion;
+            this.municipio = municipio;
+            this.departamento = departamento;
+        } catch (NumberFormatException e) {
+        }
     }
 
-    public Cliente(String Nit, String Nombre, String Direccion) {
-        this.Nit = Nit;
-        this.Nombre = Nombre;
-        this.Direccion = Direccion;
-    }
+    public Cliente(String nombre, String nit, String direccion) {
+        try {
+            this.nombre = nombre;
+            this.NIT = nit;
+            this.direccion = direccion;
+        } catch (NumberFormatException e) {
+        }
 
-    public Cliente(String Nit, String Nombre, String Direccion, String Municipo, String Departamento) {
-        this.Nit = Nit;
-        this.Nombre = Nombre;
-        this.Direccion = Direccion;
-        this.Municipo = Municipo;
-        this.Departamento = Departamento;
-    }
-
-    public String getNit() {
-        return Nit;
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNIT() {
+        return NIT;
+    }
+
+    public void setNIT(String NIT) {
+        try {
+            this.NIT = NIT;
+        } catch (NumberFormatException e) {
+        }
+
     }
 
     public String getDireccion() {
-        return Direccion;
+        return direccion;
     }
 
-    public String getMunicipo() {
-        return Municipo;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
     }
 
     public String getDepartamento() {
-        return Departamento;
+        return departamento;
     }
 
-    public void setNit(String Nit) {
-        this.Nit = Nit;
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
     }
 
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
-    }
-
-    public void setDireccion(String Direccion) {
-        this.Direccion = Direccion;
-    }
-
-    public void setMunicipo(String Municipo) {
-        this.Municipo = Municipo;
-    }
-
-    public void setDepartamento(String Departamento) {
-        this.Departamento = Departamento;
-    }
-    
-    
 }

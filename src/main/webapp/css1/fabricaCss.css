@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+body{
+    text-align: center;
+    background: url(../Imagenes/fondofb.jpg);
+}
+header{
+    margin-top: 5px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: white;
+}
+.itemsConsulta{
+    position: absolute;
+    visibility: hidden;
+    background: #1b4f72;
+    width: 250px;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+.itemsConsulta>li>a{
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    font-family: sans-serif;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+.menu>#cons:hover .itemsConsulta{
+    visibility: visible;
+    display: block;
+    opacity: 1;
+}
+.itemsConsulta li a:hover{
+    background:#3498db ;
+    display: block;
+}
+.itemsConsulta>li{
+    width: 250px;
+    background: #1b4f72;
+}
+.logout{
+    width: 100%;
+}
+.logout ul{
+    margin-right: 10px;
+    list-style: none;
+}
+.cerrarSesion>li{
+    text-decoration: none;
+    text-align: right;
+}
+.cerrarSesion>li>a{
+    padding: 15px 20px;
+    color: #1b4f72;
+    font-family: sans-serif;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #1b4f72;
+    border-radius: 5%;
+    background: white;
+}
+
+.fabrica{
+    width: 100%;
+}
+.navegacion{
+    margin: 0;
+    margin-top: 20px;
+    width: 100%;
+    background:  #1b4f72;
+}
+
+.navegacion ul{
+    list-style: none;
+}
+.menu > li{
+    position: relative;
+    display: inline-block;
+}
+.menu > li:hover{
+    background: #3498db;
+    transition: all .3s;
+}
+.menu > li > a{
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    font-family: sans-serif;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+

@@ -10,53 +10,61 @@ package os.Clases;
  * @author Oscar
  */
 public class Usuario {
-    private String Nombre_Usuario;
-    private String Password;
-    private int Tipo;
-    
-    public Usuario(){}
+    private String username;
+    private String password;
+    private int tipo;
+    private int estado;
 
-    public Usuario(String Nombre_Usuario) {
-        this.Nombre_Usuario = Nombre_Usuario;
+    public Usuario(String username, String password, String tipo,String estado) {
+        try {
+        this.estado =Integer.valueOf(estado);
+        this.username = username;
+        this.password = password;
+        this.tipo = Integer.valueOf(tipo);
+        } catch (NumberFormatException e) {
+        }
     }
 
-    public Usuario(int Tipo) {
-        this.Tipo = Tipo;
+    public String getUsername() {
+        return username;
     }
 
-    public Usuario(String Nombre_Usuario, int Tipo) {
-        this.Nombre_Usuario = Nombre_Usuario;
-        this.Tipo = Tipo;
-    }
-
-    public Usuario(String Nombre_Usuario, String Password, int Tipo) {
-        this.Nombre_Usuario = Nombre_Usuario;
-        this.Password = Password;
-        this.Tipo = Tipo;
-    }
-
-    public String getNombre_Usuario() {
-        return Nombre_Usuario;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getTipo() {
-        return Tipo;
+        return tipo;
     }
 
-    public void setNombre_Usuario(String Nombre_Usuario) {
-        this.Nombre_Usuario = Nombre_Usuario;
+    public void setTipo(String tipo) {
+        try {
+            this.tipo = Integer.valueOf(tipo);
+        } catch (NumberFormatException e) {
+        }
+        
     }
 
-    public void setPassword(String Password) {
-        this.Password = Password;
+    public int getEstado() {
+        return estado;
     }
 
-    public void setTipo(int Tipo) {
-        this.Tipo = Tipo;
+    public void setEstado(String estado) {
+        try {
+            this.estado = Integer.valueOf(estado);
+        } catch (NumberFormatException e) {
+        }
     }
+
     
+    
+  
 }

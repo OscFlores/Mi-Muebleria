@@ -1,55 +1,40 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package os.Clases;
-
-import java.util.List;
 
 /**
  *
  * @author Oscar
  */
 public class Mueble {
-    private String Nombre; 
-    private double Precio;
-    private List<EnsamblePieza> Requerimientos;
 
-    public Mueble(String Nombre) {
-        this.Nombre = Nombre;
+    private String tipoMueble;
+    private double precioVenta;
+
+    public Mueble(String tipoMueble, String precioVenta) {
+        try {
+            this.tipoMueble = tipoMueble;
+            this.precioVenta = Double.valueOf(precioVenta);
+        } catch (NumberFormatException e) {
+        }
     }
 
-    public Mueble(String Nombre, double Precio) {
-        this.Nombre = Nombre;
-        this.Precio = Precio;
+    public String getTipoMueble() {
+        return tipoMueble;
     }
 
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+    public void setTipoMueble(String tipoMueble) {
+        this.tipoMueble = tipoMueble;
     }
 
-    public void setPrecio(double Precio) {
-        this.Precio = Precio;
+    public double getPrecioVenta() {
+        return precioVenta;
     }
 
-    public void setRequerimientos(List<EnsamblePieza> Requerimientos) {
-        this.Requerimientos = Requerimientos;
+    public void setPrecioVenta(String precioVenta) {
+        try {
+            this.precioVenta = Double.valueOf(precioVenta);
+        } catch (NumberFormatException e){
+            
+        }
     }
 
-    public String getNombre() {
-        return Nombre;
-    }
-
-    public double getPrecio() {
-        return Precio;
-    }
-
-    public List<EnsamblePieza> getRequerimientos() {
-        return Requerimientos;
-    }
-    
-  
-    
-    
 }

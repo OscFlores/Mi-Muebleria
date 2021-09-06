@@ -5,151 +5,76 @@
  */
 package os.Clases;
 
-import java.util.List;
+import java.time.LocalDate;
 
 /**
  *
  * @author Oscar
  */
 public class EnsambleMueble {
-    private int idEnsamble;
-    private String Fecha;
-    private String Nombre_Usuario;
-    private String Nombre;
-    private double Costo;
-    private int Cant_Devolucion;
-    private int Cant_Venta;
-    private double precio_Venta;
-    private List<Armar> piezasUsadas;
 
-    public EnsambleMueble(String Fecha, String Nombre_Usuario, String Nombre, double Costo) {
-        this.Fecha = Fecha;
-        this.Nombre_Usuario = Nombre_Usuario;
-        this.Nombre = Nombre;
-        this.Costo = Costo;
+    private String mueble;
+    private String usuario;
+    private LocalDate fecha;
+    private Double costo;
+
+    public EnsambleMueble(String mueble, String usuario, String fecha, double costo) {
+        try {
+            this.mueble = mueble;
+            this.usuario = usuario;
+            this.fecha = convertirFecha(fecha);
+            this.costo = costo;
+        } catch (Exception e) {
+        }
     }
 
-    public EnsambleMueble(int idEnsamble) {
-        this.idEnsamble = idEnsamble;
+    public String getMueble() {
+        return mueble;
     }
 
-    public EnsambleMueble(int idEnsamble, String Nombre, double precio_Venta) {
-        this.idEnsamble = idEnsamble;
-        this.Nombre = Nombre;
-        this.precio_Venta = precio_Venta;
+    public void setMueble(String mueble) {
+        this.mueble = mueble;
     }
 
-    public EnsambleMueble(int idEnsamble, String Fecha, String Nombre_Usuario, String Nombre, double Costo, double precio_Venta,int Cant_Devolucion) {
-        this.idEnsamble = idEnsamble;
-        this.Fecha = Fecha;
-        this.Nombre_Usuario = Nombre_Usuario;
-        this.Nombre = Nombre;
-        this.Costo = Costo;
-        this.precio_Venta = precio_Venta;
-        this.Cant_Devolucion = Cant_Devolucion;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public EnsambleMueble(int idEnsamble, String Fecha, String Nombre_Usuario, String Nombre, double precio_Venta,int Cant_Venta) {
-        this.idEnsamble = idEnsamble;
-        this.Fecha = Fecha;
-        this.Nombre_Usuario = Nombre_Usuario;
-        this.Nombre = Nombre;
-        this.precio_Venta = precio_Venta;
-        this.Cant_Venta = Cant_Venta;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
-    public EnsambleMueble(String Fecha, String Nombre_Usuario, String Nombre) {
-        this.Fecha = Fecha;
-        this.Nombre_Usuario = Nombre_Usuario;
-        this.Nombre = Nombre;
+    public LocalDate getFecha() {
+        return fecha;
     }
 
-    public EnsambleMueble(String Fecha, String Nombre_Usuario, String Nombre, double Costo, int Cant_Devolucion, int Cant_Venta, double precio_Venta) {
-        this.Fecha = Fecha;
-        this.Nombre_Usuario = Nombre_Usuario;
-        this.Nombre = Nombre;
-        this.Costo = Costo;
-        this.Cant_Devolucion = Cant_Devolucion;
-        this.Cant_Venta = Cant_Venta;
-        this.precio_Venta = precio_Venta;
+    public void setFecha(String fecha) {
+        this.fecha = convertirFecha(fecha);
     }
 
-    public EnsambleMueble(String Fecha, String Nombre_Usuario, double precio_Venta) {
-        this.Fecha = Fecha;
-        this.Nombre_Usuario = Nombre_Usuario;
-        this.precio_Venta = precio_Venta;
+    public Double getCosto() {
+        return costo;
     }
 
-    public void setIdEnsamble(int idEnsamble) {
-        this.idEnsamble = idEnsamble;
+    public void setCosto(Double costo) {
+        this.costo = costo;
     }
 
-    public int getIdEnsamble() {
-        return idEnsamble;
+    public static LocalDate convertirFecha(String fecha) {
+        if (fecha.contains("/")) {
+            String[] fechaDividida = fecha.split("/");
+            int dia = Integer.valueOf(fechaDividida[0]);
+            int mes = Integer.valueOf(fechaDividida[1]);
+            int anio = Integer.valueOf(fechaDividida[2]);
+            return LocalDate.of(anio, mes, dia);
+        } else{
+            String[] fechadiv=fecha.split("-");
+            int anio= Integer.valueOf(fechadiv[0]);
+            int mes = Integer.valueOf(fechadiv[1]);
+            int dia = Integer.valueOf(fechadiv[2]);
+            return LocalDate.of(anio, mes, dia);
+         }
+
     }
 
-    public void setPiezasUsadas(List<Armar> piezasUsadas) {
-        this.piezasUsadas = piezasUsadas;
-    }
-
-    public List<Armar> getPiezasUsadas() {
-        return piezasUsadas;
-    }
-
-    public void setFecha(String Fecha) {
-        this.Fecha = Fecha;
-    }
-
-    public void setNombre_Usuario(String Nombre_Usuario) {
-        this.Nombre_Usuario = Nombre_Usuario;
-    }
-
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
-    }
-
-    public void setCosto(double Costo) {
-        this.Costo = Costo;
-    }
-
-    public void setCant_Devolucion(int Cant_Devolucion) {
-        this.Cant_Devolucion = Cant_Devolucion;
-    }
-
-    public void setCant_Venta(int Cant_Venta) {
-        this.Cant_Venta = Cant_Venta;
-    }
-
-    public void setPrecio_Venta(double precio_Venta) {
-        this.precio_Venta = precio_Venta;
-    }
-
-    public String getFecha() {
-        return Fecha;
-    }
-
-    public String getNombre_Usuario() {
-        return Nombre_Usuario;
-    }
-
-    public String getNombre() {
-        return Nombre;
-    }
-
-    public double getCosto() {
-        return Costo;
-    }
-
-    public int getCant_Devolucion() {
-        return Cant_Devolucion;
-    }
-
-    public int getCant_Venta() {
-        return Cant_Venta;
-    }
-
-    public double getPrecio_Venta() {
-        return precio_Venta;
-    }
-    
 }
