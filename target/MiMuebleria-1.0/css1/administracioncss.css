@@ -1,0 +1,77 @@
+body{
+    background: url(../Imagenes/admin1.jpg);
+    background-size: cover;
+    text-align: center;
+}
+header{
+    color: white;
+    font-size: 70px;
+    font-weight: bold;
+}
+.logout{
+    width: 100%;
+}
+.logout ul{
+    margin-right: 10px;
+    list-style: none;
+}
+.cerrarSesion>li{
+    text-decoration: none;
+    text-align: right;
+}
+.cerrarSesion>li>a{
+    padding: 15px 20px;
+    color: #1b4f72;
+    font-family: sans-serif;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #1b4f72;
+    border-radius: 5%;
+    background: white;
+}
+.navegacion{
+    box-sizing: border-box;
+    list-style: none;
+    text-align: center;
+    margin-top: 50px;
+    width: 100%;
+    height: 100%;
+    background: #1b4f72;
+}
+
+.navegacion li{
+    height: 100%;
+    width: 13%; 
+    display: inline-block;
+}
+
+.menu > li:hover{
+    background: #3498db;
+    transition: all .3s;
+}
+.menu > li:hover form{
+    display: block;
+}
+.menu > li > a{
+    margin: 0;
+    padding: 0;
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    font-family: sans-serif;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+.menu form{
+    position: absolute;
+    display: none;
+}
+
+.financiero{
+    width: 100%;
+}
+
+
+

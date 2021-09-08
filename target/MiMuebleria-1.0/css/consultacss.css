@@ -1,0 +1,31 @@
+*{
+    text-align: center;
+    margin: auto;
+}
+h1{
+    margin-top: 100px;
+    font-size: 100px;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-bottom: 100px;
+}
+body{
+    background: whitesmoke;
+}
+header{
+    margin-top: 100px;
+    font-size: 100px;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-bottom: 100px;
+}
+#table {
+    font-size: 50px;
+}
+#back a{
+    font-size:35px;
+    text-decoration: none;
+    margin-right:  20px;
+    
+}
+
